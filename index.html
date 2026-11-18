@@ -2,34 +2,360 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¿Aprobarías? · Test del carnet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¿Aprobarías? · Test del carnet de conducir</title>
+<meta name="description" content="Practica el examen teórico del carnet de conducir con preguntas explicadas y su artículo del BOE. Gratis y sin registro.">
+<meta property="og:title" content="¿Aprobarías hoy el examen del carnet?">
+<meta property="og:description" content="Haz un test rápido con preguntas explicadas y su artículo del BOE. Gratis y sin registro.">
+<meta property="og:image" content="https://aprobarias-test.github.io/img/compartir.jpg">
+<meta property="og:url" content="https://aprobarias-test.github.io/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#18222e">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preload" href="fuentes/overpass.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--bg:#12181f;--panel:#1b242e;--text:#eef1f4;--soft:#b6c0ca;--accent:#ffd43b}
+/* Concepto: una carretera de noche. Asfalto, líneas de carril y paneles informativos como los de la autovía. */
+@font-face{font-family:Overpass;src:url(fuentes/overpass.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Public Sans";src:url(fuentes/public-sans.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --asfalto:#18222e; --asfalto-2:#212e3d; --asfalto-3:#2d3c4e; --linea:#4a5b70;
+  --texto:#f3f6f9; --suave:#b9c5d2; --amarillo:#ffd43b; --rojo:#e84b50; --verde:#1f9d68; --verde-claro:#d9f4e7; --rojo-claro:#fde4e4;
+  --panel:#1450a8; --papel:#ffffff; --tinta:#17212c; --tinta-suave:#4b5a6b; --borde:#d5dce4;
+  --titulo:Overpass,"Arial Narrow",Arial,sans-serif; --cuerpo:"Public Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-main{max-width:680px;margin:0 auto;padding:48px 20px}
-h1{font-size:2rem;line-height:1.2;margin:0 0 12px;color:var(--accent)}
-p{color:var(--soft)}
-.card{background:var(--panel);border-radius:14px;padding:20px 22px;margin:28px 0}
-.card h2{font-size:1.1rem;margin:0 0 6px}
-.card p{margin:0}
-a{color:var(--accent)}
-footer{margin-top:36px;font-size:.92rem;color:var(--soft)}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--asfalto);color:var(--texto);font:400 1.0625rem/1.6 var(--cuerpo);overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--titulo);font-weight:800;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,4.6vw,3.1rem)}
+p{margin:0}
+ul,ol{list-style:none;margin:0;padding:0}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px;border-radius:6px}
+.ancho{width:100%;max-width:1180px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.salto{position:absolute;left:12px;top:-70px;background:var(--amarillo);color:var(--tinta);padding:10px 16px;border-radius:8px;z-index:30;font-weight:700}
+.salto:focus{top:10px}
+
+.cab{position:sticky;top:0;z-index:20;background:var(--asfalto);border-bottom:1px solid var(--asfalto-3)}
+.cab .ancho{display:flex;align-items:center;gap:26px;min-height:66px}
+.marca{display:flex;align-items:center;gap:10px;margin-right:auto;font:900 1.4rem var(--titulo);text-decoration:none;white-space:nowrap}
+.marca svg{width:36px;height:36px}
+.nav{display:flex;gap:24px}
+.nav a{font:700 1.02rem var(--titulo);color:var(--suave);text-decoration:none;padding:6px 0}
+.nav a:hover{color:var(--amarillo)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 22px 8px;border:0;border-radius:8px;background:var(--asfalto-3);color:var(--texto);font:800 1.08rem/1.1 var(--titulo);text-decoration:none;cursor:pointer;transition:background .15s,transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.amarillo{background:var(--amarillo);color:var(--tinta)}
+.btn.amarillo:hover{background:#ffe066}
+.btn.rojo{background:#c8272d;color:#fff}
+.cab .btn{min-height:40px;padding:9px 16px 6px;font-size:.98rem}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#141d28,var(--asfalto))}
+.hero::before,.hero::after{content:"";position:absolute;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,var(--linea) 0 64px,transparent 64px 124px);opacity:.55}
+.hero::before{top:26px}.hero::after{bottom:26px}
+.hero .ancho{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:52px;align-items:center;padding-block:70px 74px}
+.ante{display:inline-block;background:var(--verde);color:#fff;font:800 .95rem var(--titulo);padding:6px 12px 3px;border-radius:5px;letter-spacing:.03em;text-transform:uppercase}
+h1{font-size:clamp(3.2rem,6vw,5.3rem);font-weight:900;line-height:.92;letter-spacing:-.015em;margin-top:18px}
+h1 em{display:block;font-style:normal;color:var(--amarillo)}
+.intro{margin-top:22px;max-width:29em;font-size:1.2rem;color:var(--suave)}
+.cifras{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:28px}
+.cifras b{display:block;font:900 2.3rem/1 var(--titulo);color:#fff}
+.cifras span{font-size:.95rem;color:var(--suave)}
+
+.test{background:var(--papel);color:var(--tinta);border-radius:12px;padding:22px 24px 22px;box-shadow:0 18px 50px rgba(0,0,0,.42);min-width:0}
+.t-cab{display:flex;justify-content:space-between;align-items:center;gap:12px;font:800 .98rem var(--titulo);color:var(--tinta-suave)}
+.t-cab b{color:var(--verde);font-weight:800}
+.barra{height:7px;margin-top:9px;background:#e7ecf1;border-radius:99px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--amarillo);transition:width .25s}
+.t-tema{margin-top:15px;font:800 .84rem var(--titulo);letter-spacing:.05em;text-transform:uppercase;color:#a12127}
+.t-preg{margin-top:4px;font:800 clamp(1.3rem,2.6vw,1.55rem)/1.16 var(--titulo)}
+.t-senal{width:104px;height:104px;margin:14px auto 2px}
+.ops{display:grid;gap:9px;margin-top:15px}
+.op{display:grid;grid-template-columns:34px minmax(0,1fr);gap:11px;align-items:center;width:100%;min-height:54px;padding:8px 12px;background:#fff;border:2px solid var(--borde);border-radius:8px;color:var(--tinta);font:600 1rem/1.3 var(--cuerpo);text-align:left;cursor:pointer;transition:border-color .12s,background .12s}
+.op:hover:not(:disabled){border-color:var(--tinta);background:#f5f7f9}
+.op i{display:grid;place-items:center;width:34px;height:34px;padding-top:3px;border-radius:50%;background:var(--asfalto-2);color:#fff;font:800 1.02rem var(--titulo)}
+.op:disabled{cursor:default;color:var(--tinta)}
+.op.bien{background:var(--verde-claro);border-color:var(--verde)}.op.bien i{background:var(--verde)}
+.op.mal{background:var(--rojo-claro);border-color:#c8272d}.op.mal i{background:#c8272d}
+.expl{margin-top:13px;padding:12px 14px;background:#fff7d6;border-radius:8px;font-size:.98rem;line-height:1.45}
+.expl b{display:block;font:800 1.08rem var(--titulo)}
+.expl a{display:inline-block;margin-top:5px;font-size:.88rem;font-weight:700;color:#174a96}
+.t-pie{display:flex;justify-content:flex-end;margin-top:13px}
+.res{text-align:center;padding-block:10px 4px}
+.nota{font:900 clamp(4.4rem,10vw,6rem)/1 var(--titulo)}
+.nota small{font-size:.42em;color:var(--tinta-suave)}
+.sello{display:inline-block;margin-top:8px;padding:8px 18px 4px;border:4px solid currentColor;border-radius:8px;font:900 1.7rem var(--titulo);text-transform:uppercase;transform:rotate(-3deg)}
+.sello.apto{color:var(--verde)}.sello.no{color:#c8272d}
+.res p{margin:15px auto 0;max-width:27em;color:var(--tinta-suave)}
+.res .acc{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.res .btn:not(.amarillo){background:var(--asfalto-2);color:#fff}
+
+.bloque{padding-block:76px}
+.cabecera{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px 40px;margin-bottom:32px}
+.cabecera p{max-width:31em;color:var(--suave);font-size:1.1rem}
+.paneles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.panel{background:var(--panel);border-radius:10px;padding:6px}
+.panel-in{display:flex;flex-direction:column;height:100%;padding:20px 20px 18px;border:3px solid #fff;border-radius:6px}
+.panel h3{font-size:1.9rem;font-weight:800}
+.panel p{flex:1;margin-top:8px;color:#e3edfb;font-size:1rem;line-height:1.42}
+.panel-btn{align-self:flex-start;margin-top:15px;font:800 1.06rem var(--titulo);color:var(--amarillo);text-underline-offset:4px;text-decoration-thickness:2px}
+.panel-btn::after{content:" →"}
+
+.videos-b{background:var(--asfalto-2)}
+.examen{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);margin-bottom:38px;background:var(--asfalto);border-radius:12px;overflow:hidden;text-decoration:none}
+.examen img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover}
+.examen-txt{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:11px;padding:26px 30px;color:var(--suave)}
+.etiqueta{font:800 .88rem var(--titulo);letter-spacing:.05em;text-transform:uppercase;color:var(--amarillo)}
+.examen strong{font:800 clamp(1.5rem,2.8vw,2.1rem)/1.08 var(--titulo);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{min-height:42px;padding:8px 16px 5px;background:transparent;border:2px solid var(--linea);border-radius:7px;color:var(--texto);font:700 1rem var(--titulo);cursor:pointer}
+.chip:hover{border-color:var(--amarillo)}
+.chip.activo{background:var(--amarillo);border-color:var(--amarillo);color:var(--tinta)}
+.rejilla{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 16px}
+.video a,.todos{text-decoration:none}
+.marco{position:relative;display:block;aspect-ratio:9/16;border-radius:9px;overflow:hidden;background:var(--asfalto);transition:transform .15s}
+.video a:hover .marco{transform:translateY(-4px)}
+.marco img{width:100%;height:100%;object-fit:cover}
+.dur{position:absolute;right:7px;bottom:7px;padding:2px 7px 0;background:rgba(10,15,22,.86);border-radius:4px;color:#fff;font:700 .84rem var(--titulo)}
+.v-tema{display:block;margin-top:10px;font:800 .76rem var(--titulo);letter-spacing:.05em;text-transform:uppercase;color:var(--amarillo)}
+.v-tit{display:block;margin-top:1px;font:700 1.03rem/1.18 var(--titulo)}
+.todos{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;aspect-ratio:9/16;padding:14px;background:var(--amarillo);border-radius:9px;color:var(--tinta);text-align:center;font:900 1.3rem/1.08 var(--titulo)}
+.todos span{padding:8px 12px 5px;background:var(--tinta);border-radius:6px;color:#fff;font-size:.92rem}
+[hidden]{display:none!important}
+
+.ruta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:6px;border-top:6px dashed var(--amarillo)}
+.ruta li{padding:20px 24px 0 0;min-width:0;counter-increment:r}
+.ruta{counter-reset:r}
+.ruta b{display:block;font:800 1.45rem/1.1 var(--titulo)}
+.ruta b::before{content:counter(r) ". ";color:var(--amarillo)}
+.ruta p{margin-top:6px;color:var(--suave);font-size:1rem;line-height:1.45}
+.dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:50px}
+.caja{background:var(--asfalto-2);border-radius:10px;padding:24px 26px}
+.caja h3{font-size:1.55rem;margin-bottom:12px}
+.agenda li{display:flex;justify-content:space-between;gap:18px;padding:9px 0;border-top:1px solid var(--asfalto-3)}
+.agenda li:first-child{border-top:0}
+.agenda b{font-family:var(--titulo);font-weight:800}
+.agenda span{color:var(--suave);text-align:right}
+.lista{display:grid;gap:10px;color:var(--suave)}
+.lista b{color:var(--texto)}
+
+.fin{background:var(--amarillo);color:var(--tinta)}
+.fin .ancho{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px 40px;padding-block:44px}
+.fin .btn{background:var(--tinta);color:#fff}
+.pie{background:#111922;color:var(--suave);font-size:.96rem}
+.pie .ancho{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:34px;padding-block:40px}
+.pie h2{font-size:1.2rem;color:#fff;margin-bottom:8px}
+.pie p+p{margin-top:12px}
+.pie nav{display:grid;gap:9px;justify-items:start}
+.pie a{color:var(--amarillo);font-weight:600;text-underline-offset:3px}
+
+@media (max-width:1040px){
+  .nav{display:none}
+  .rejilla{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ruta{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:6px}
+}
+@media (max-width:860px){
+  .hero .ancho{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:56px 60px}
+  h1{font-size:clamp(3.2rem,15vw,6rem)}
+  .paneles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .examen{grid-template-columns:minmax(0,1fr)}
+  .dos,.pie .ancho{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .bloque{padding-block:56px}
+  .cab .btn{display:none}
+  .paneles{grid-template-columns:minmax(0,1fr);gap:12px}
+  .rejilla{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ruta{grid-template-columns:minmax(0,1fr)}
+  .test{padding:18px 15px}
+  .examen-txt{padding:20px}
+  .caja{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
 </style>
 </head>
 <body>
-<main>
-<h1>¿Aprobarías? · Test del carnet</h1>
-<p>Canal de YouTube con preguntas de práctica para preparar el examen teórico del carnet de conducir en España, con la respuesta explicada.</p>
-<div class="card">
-<h2>Sobre esta aplicación</h2>
-<p>«Aprobarias Test» es una herramienta privada que usa el propio canal para publicar sus vídeos en YouTube y gestionar sus miniaturas, listas y datos. No está abierta al público ni pide datos a quienes ven los vídeos.</p>
-</div>
-<p>Este canal es un proyecto independiente y no tiene relación con ningún organismo oficial.</p>
-<footer>
-<a href="privacidad.html">Política de privacidad</a> · Contacto: <a href="mailto:aprobariastest@gmail.com">aprobariastest@gmail.com</a>
-</footer>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+<header class="cab">
+  <div class="ancho">
+    <a class="marca" href="#inicio" aria-label="¿Aprobarías? Inicio">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9 95 86H5Z" fill="#fff" stroke="#e84b50" stroke-width="10" stroke-linejoin="round"/><text x="50" y="76" text-anchor="middle" font-family="Overpass,Arial,sans-serif" font-weight="900" font-size="50" fill="#1d3557">?</text></svg>
+      <span>¿Aprobarías?</span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#test">Test</a>
+      <a href="#temas">Temas</a>
+      <a href="#videos">Vídeos</a>
+      <a href="#metodo">Cómo estudiar</a>
+    </nav>
+    <a class="btn rojo" href="https://www.youtube.com/@aprobariastest" target="_blank" rel="noopener">Ver el canal</a>
+  </div>
+</header>
+
+<main id="contenido">
+<section class="hero" id="inicio">
+  <div class="ancho">
+    <div>
+      <span class="ante">Test del carnet de conducir</span>
+      <h1>¿Aprobarías <em>hoy?</em></h1>
+      <p class="intro">Ponte a prueba con preguntas del teórico del permiso B. Cada respuesta viene explicada y con su artículo del BOE.</p>
+      <div class="cifras">
+        <div><b>30</b><span>preguntas en el examen</span></div>
+        <div><b>3</b><span>fallos como máximo</span></div>
+        <div><b>0 €</b><span>sin registro</span></div>
+      </div>
+    </div>
+    <div class="test" id="test" aria-label="Test de práctica">
+      <noscript><p class="t-preg">Activa JavaScript para hacer el test, o mira las preguntas en vídeo.</p></noscript>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" id="temas">
+  <div class="ancho">
+    <div class="cabecera">
+      <h2>Estudia por temas</h2>
+      <p>Elige lo que más te cuesta y practica solo esas preguntas.</p>
+    </div>
+    <ul class="paneles"><li class="panel"><div class="panel-in"><h3>Señales</h3><p>Prohibición, obligación e indicación: qué significa cada una.</p><a class="panel-btn" href="#test" data-practicar="senales">Practicar 6 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Velocidad</h3><p>Límites en autovía, carretera y ciudad, y velocidad mínima.</p><a class="panel-btn" href="#test" data-practicar="velocidad">Practicar 4 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Adelantamientos</h3><p>Cuándo se puede adelantar y cómo hacerlo con ciclistas.</p><a class="panel-btn" href="#test" data-practicar="adelantamientos">Practicar 5 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Seguridad</h3><p>Móvil, sillas infantiles, casco, motos y patinetes.</p><a class="panel-btn" href="#test" data-practicar="seguridad">Practicar 6 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Circulación</h3><p>Atascos, carril de emergencia, prioridad y maniobras.</p><a class="panel-btn" href="#videos" data-filtro="circulacion">Ver vídeos</a></div></li><li class="panel"><div class="panel-in"><h3>Puntos y carnet</h3><p>Cómo se pierden los puntos y qué permite tu permiso.</p><a class="panel-btn" href="#videos" data-filtro="puntos">Ver vídeos</a></div></li></ul>
+  </div>
+</section>
+
+<section class="bloque videos-b" id="videos">
+  <div class="ancho">
+    <div class="cabecera">
+      <h2>Aprende en vídeo</h2>
+      <p>Una pregunta explicada en menos de un minuto.</p>
+    </div>
+    <a class="examen" href="https://www.youtube.com/watch?v=hR_IomB4_a8" target="_blank" rel="noopener">
+<img src="img/videos/hR_IomB4_a8.jpg" width="960" height="540" loading="lazy" alt="">
+<span class="examen-txt"><span class="etiqueta">Examen completo</span><strong>Examen teórico del carnet COMPLETO: 30 preguntas explicadas</strong><span>Duración: 19:10. Cada domingo, un examen nuevo con todas las respuestas explicadas.</span><span class="btn amarillo">Hacer el examen</span></span></a>
+    <div class="chips" role="group" aria-label="Filtrar vídeos por tema"><button class="chip activo" type="button" data-f="todos" aria-pressed="true">Todos</button><button class="chip" type="button" data-f="senales" aria-pressed="false">Señales</button><button class="chip" type="button" data-f="adelantamientos" aria-pressed="false">Adelantamientos</button><button class="chip" type="button" data-f="seguridad" aria-pressed="false">Seguridad</button><button class="chip" type="button" data-f="circulacion" aria-pressed="false">Circulación</button><button class="chip" type="button" data-f="puntos" aria-pressed="false">Puntos y carnet</button></div>
+    <ul class="rejilla">
+<li class="video" data-s="adelantamientos"><a href="https://www.youtube.com/watch?v=4xb0GPqQ2bA" target="_blank" rel="noopener">
+<span class="marco"><img src="img/videos/4xb0GPqQ2bA.jpg" width="360" height="640" loading="lazy" alt=""><span class="dur">0:42</span></span>
+<span class="v-tema">Adelantamientos</span><span class="v-tit">¿Aprobarías esta de adelantar a ciclistas?</span></a></li>
+<li class="video" data-s="circulacion"><a href="https://www.youtube.com/watch?v=wzUa0msWK70" target="_blank" rel="noopener">
+<span class="marco"><img src="img/videos/wzUa0msWK70.jpg" width="360" height="640" loading="lazy" alt=""><span class="dur">0:34</span></span>
+<span class="v-tema">Circulación</span><span class="v-tit">¿Aprobarías esta de carril de emergencia?</span></a></li>
+<li class="video" data-s="puntos"><a href="https://www.youtube.com/watch?v=DRcN_xLnV1E" target="_blank" rel="noopener">
+<span class="marco"><img src="img/videos/DRcN_xLnV1E.jpg" width="360" height="640" loading="lazy" alt=""><span class="dur">0:40</span></span>
+<span class="v-tema">Puntos y carnet</span><span class="v-tit">¿Aprobarías esta de puntos: tope en un mismo día?</span></a></li>
+<li class="video" data-s="seguridad"><a href="https://www.youtube.com/watch?v=wphZlq-yccc" target="_blank" rel="noopener">
+<span class="marco"><img src="img/videos/wphZlq-yccc.jpg" width="360" height="640" loading="lazy" alt=""><span class="dur">0:39</span></span>
+<span class="v-tema">Seguridad</span><span class="v-tit">Llevas en el coche a un niño que mide 1,30 m. ¿Qué debe usar?</span></a></li>
+<li class="video" data-s="senales"><a href="https://www.youtube.com/watch?v=m64yEe0shtk" target="_blank" rel="noopener">
+<span class="marco"><img src="img/videos/m64yEe0shtk.jpg" width="360" height="640" loading="lazy" alt=""><span class="dur">0:32</span></span>
+<span class="v-tema">Señales</span><span class="v-tit">¿Qué te obliga a hacer esta señal azul?</span></a></li>
+      <li><a class="todos" href="https://www.youtube.com/@aprobariastest/shorts" target="_blank" rel="noopener">Más preguntas en el canal<span>Ver todas</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="bloque" id="metodo">
+  <div class="ancho">
+    <div class="cabecera">
+      <h2>Cómo estudiar con el canal</h2>
+      <p>Un rato al día rinde más que un atracón antes del examen.</p>
+    </div>
+    <ol class="ruta">
+      <li><b>Responde</b><p>Haz la pregunta del día antes de ver la solución.</p></li>
+      <li><b>Entiende</b><p>Lee por qué es correcta y qué dice el artículo.</p></li>
+      <li><b>Repasa</b><p>Practica por temas lo que hayas fallado.</p></li>
+      <li><b>Examínate</b><p>Haz el examen completo del domingo y cuenta tus fallos.</p></li>
+    </ol>
+    <div class="dos">
+      <div class="caja">
+        <h3>Cuándo hay vídeo nuevo</h3>
+        <ul class="agenda">
+          <li><b>Lunes a sábado</b><span>Pregunta del día, a las 19:30</span></li>
+          <li><b>Domingo</b><span>Examen completo de 30 preguntas</span></li>
+        </ul>
+      </div>
+      <div class="caja">
+        <h3>De dónde salen las respuestas</h3>
+        <ul class="lista">
+          <li><b>Preguntas propias,</b> redactadas a partir de la normativa.</li>
+          <li><b>Comprobadas con el BOE,</b> con el artículo a la vista.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fin">
+  <div class="ancho">
+    <h2>Una pregunta nueva cada día</h2>
+    <a class="btn" href="https://www.youtube.com/@aprobariastest?sub_confirmation=1" target="_blank" rel="noopener">Suscribirse al canal</a>
+  </div>
+</section>
 </main>
+
+<footer class="pie">
+  <div class="ancho">
+    <div>
+      <h2>Sobre esta aplicación</h2>
+      <p>«Aprobarias Test» es también una herramienta privada que usa el propio canal para publicar sus vídeos en YouTube y gestionar sus miniaturas, listas y datos. No está abierta al público ni pide datos a quienes ven los vídeos.</p>
+      <p>Las preguntas sirven para practicar: la referencia es siempre la normativa vigente.</p>
+    </div>
+    <nav aria-label="Enlaces legales">
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="https://www.youtube.com/@aprobariastest" target="_blank" rel="noopener">Canal de YouTube</a>
+      <a href="mailto:aprobariastest@gmail.com">aprobariastest@gmail.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var BANCO=[{"t":"velocidad","p":"Vas en un turismo por una autovía sin señales de velocidad. ¿Cuál es la velocidad máxima?","o":["100 km/h","120 km/h","130 km/h"],"c":1,"e":"En autopistas y autovías, el límite genérico para turismos y motocicletas es 120 km/h.","f":"Artículo 48 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a48","s":null},{"t":"velocidad","p":"Circulas por una calle de ciudad con un solo carril en cada sentido. Si no hay señales, ¿a qué velocidad máxima puedes ir?","o":["20 km/h","30 km/h","50 km/h"],"c":1,"e":"En vías urbanas de un único carril por sentido, el límite genérico es 30 km/h.","f":"Artículo 50 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a50","s":null},{"t":"velocidad","p":"Entras en una calle donde la calzada y la acera están al mismo nivel (plataforma única). ¿Cuál es el límite genérico?","o":["10 km/h","20 km/h","30 km/h"],"c":1,"e":"En vías urbanas con plataforma única de calzada y acera, el límite genérico es 20 km/h.","f":"Artículo 50 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a50","s":null},{"t":"velocidad","p":"En una autovía, ¿por debajo de qué velocidad está prohibido circular con un vehículo a motor, salvo causa justificada?","o":["40 km/h","60 km/h","80 km/h"],"c":1,"e":"Se prohíbe circular por autopistas y autovías a menos de 60 km/h, aunque no haya otros vehículos.","f":"Artículo 49 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a49","s":null},{"t":"seguridad","p":"Conduciendo, te entra una llamada. ¿Cuándo puedes atenderla?","o":["Siempre que sujetes el móvil solo unos segundos","Solo si la comunicación es sin usar las manos y sin cascos ni auriculares","Nunca: hablar por teléfono está prohibido en cualquier caso"],"c":1,"e":"Se prohíbe usar el móvil conduciendo, salvo que la comunicación sea sin manos y sin cascos, auriculares o similares.","f":"Artículo 18 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a18","s":null},{"t":"adelantamientos","p":"Fuera de poblado, en una carretera de un carril por sentido, vas a adelantar a un ciclista. ¿Qué separación lateral mínima debes dejar?","o":["1 metro","1,5 metros","2 metros"],"c":1,"e":"Al adelantar a ciclistas hay que guardar una anchura de seguridad de, al menos, 1,5 metros (y si hay más de un carril por sentido, cambiar de carril por completo).","f":"Artículo 85 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a85","s":null},{"t":"seguridad","p":"Llevas en el coche a un niño que mide 1,30 m. ¿Qué debe usar?","o":["Solo el cinturón de seguridad, como un adulto","Un sistema de retención infantil homologado adaptado a su talla y peso","Nada especial si va en el asiento trasero"],"c":1,"e":"Los menores de 135 cm o menos deben usar sistemas de retención infantil homologados adaptados a su talla y peso.","f":"Artículo 117 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a117","s":null},{"t":"senales","p":"¿Qué te indica esta señal?","o":["Que no puedes circular a más de 60 km/h","Que debes circular al menos a 60 km/h","Que se recomienda circular a 60 km/h"],"c":0,"e":"Es la señal de velocidad máxima: prohíbe circular a más de la velocidad indicada, desde donde está colocada.","f":"Anexo I · Catálogo oficial de señales (RD 465/2025)","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12199","s":"<svg viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Señal de tráfico\"><circle cx=\"50\" cy=\"50\" r=\"48\" fill=\"#FFF\" stroke=\"#C9CED6\" stroke-width=\".8\"/><circle cx=\"50\" cy=\"50\" r=\"45.5\" fill=\"#D7191C\"/><circle cx=\"50\" cy=\"50\" r=\"33\" fill=\"#FFF\"/><text x=\"50\" y=\"52\" text-anchor=\"middle\" dominant-baseline=\"middle\" font-family=\"Overpass,Arial Narrow,sans-serif\" font-weight=\"800\" font-size=\"42\" fill=\"#1A1A1A\">60<\/text><\/svg>"},{"t":"senales","p":"¿Qué te obliga a hacer esta señal azul?","o":["No superar los 60 km/h","Circular por lo menos a 60 km/h","Nada, solo es una recomendación"],"c":1,"e":"Es la señal de velocidad mínima: obliga a circular, por lo menos, a la velocidad indicada.","f":"Anexo I · Catálogo oficial de señales (RD 465/2025)","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12199","s":"<svg viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Señal de tráfico\"><circle cx=\"50\" cy=\"50\" r=\"48\" fill=\"#FFF\" stroke=\"#C9CED6\" stroke-width=\".8\"/><circle cx=\"50\" cy=\"50\" r=\"45.5\" fill=\"#1F5FBF\"/><text x=\"50\" y=\"52\" text-anchor=\"middle\" dominant-baseline=\"middle\" font-family=\"Overpass,Arial Narrow,sans-serif\" font-weight=\"800\" font-size=\"54\" fill=\"#FFF\">60<\/text><\/svg>"},{"t":"senales","p":"Ves esta señal cuadrada azul. ¿Qué significa?","o":["Velocidad máxima obligatoria de 70 km/h","Velocidad mínima de 70 km/h","Velocidad aconsejada de 70 km/h"],"c":2,"e":"Es la velocidad máxima aconsejable: recomienda no superar esa velocidad, aunque las condiciones sean favorables.","f":"Anexo I · Catálogo oficial de señales (RD 465/2025)","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12199","s":"<svg viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Señal de tráfico\"><rect x=\"3\" y=\"3\" width=\"94\" height=\"94\" rx=\"7\" fill=\"#FFF\" stroke=\"#C9CED6\" stroke-width=\".8\"/><rect x=\"7\" y=\"7\" width=\"86\" height=\"86\" rx=\"5\" fill=\"#1F5FBF\"/><text x=\"50\" y=\"52\" text-anchor=\"middle\" dominant-baseline=\"middle\" font-family=\"Overpass,Arial Narrow,sans-serif\" font-weight=\"800\" font-size=\"54\" fill=\"#FFF\">70<\/text><\/svg>"},{"t":"senales","p":"Junto a esta señal, ¿puedes parar un momento para que baje un pasajero?","o":["Sí, porque solo prohíbe estacionar","No, prohíbe parar y estacionar","Solo si dejas las luces de emergencia"],"c":0,"e":"Es la señal de estacionamiento prohibido. La norma dice expresamente que no prohíbe la parada.","f":"Anexo I · Catálogo oficial de señales (RD 465/2025)","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12199","s":"<svg viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Señal de tráfico\"><circle cx=\"50\" cy=\"50\" r=\"48\" fill=\"#FFF\" stroke=\"#C9CED6\" stroke-width=\".8\"/><circle cx=\"50\" cy=\"50\" r=\"45.5\" fill=\"#D7191C\"/><circle cx=\"50\" cy=\"50\" r=\"33\" fill=\"#1F5FBF\"/><line x1=\"27\" y1=\"27\" x2=\"73\" y2=\"73\" stroke=\"#D7191C\" stroke-width=\"10\"/><\/svg>"},{"t":"senales","p":"¿Qué prohíbe esta señal con un aspa?","o":["Solo estacionar","Parar y estacionar","Circular por esa calle"],"c":1,"e":"Es la señal de parada y estacionamiento prohibido, en el lado de la calzada donde está la señal.","f":"Anexo I · Catálogo oficial de señales (RD 465/2025)","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12199","s":"<svg viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Señal de tráfico\"><circle cx=\"50\" cy=\"50\" r=\"48\" fill=\"#FFF\" stroke=\"#C9CED6\" stroke-width=\".8\"/><circle cx=\"50\" cy=\"50\" r=\"45.5\" fill=\"#D7191C\"/><circle cx=\"50\" cy=\"50\" r=\"33\" fill=\"#1F5FBF\"/><line x1=\"27\" y1=\"27\" x2=\"73\" y2=\"73\" stroke=\"#D7191C\" stroke-width=\"10\"/><line x1=\"73\" y1=\"27\" x2=\"27\" y2=\"73\" stroke=\"#D7191C\" stroke-width=\"10\"/><\/svg>"},{"t":"senales","p":"Llegas a esta señal y no viene nadie. ¿Qué debes hacer?","o":["Reducir y pasar sin detenerte","Detenerte ante la línea de detención y ceder el paso","Detenerte solo si viene alguien"],"c":1,"e":"El STOP obliga a detener el vehículo ante la línea de detención (o antes de la intersección) y ceder el paso.","f":"Anexo I · Catálogo oficial de señales (RD 465/2025)","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12199","s":"<svg viewBox=\"0 0 100 100\" role=\"img\" aria-label=\"Señal de tráfico\"><polygon points=\"30.5,2 69.5,2 98,30.5 98,69.5 69.5,98 30.5,98 2,69.5 2,30.5\" fill=\"#FFF\" stroke=\"#C9CED6\" stroke-width=\".8\"/><polygon points=\"31.7,5 68.3,5 95,31.7 95,68.3 68.3,95 31.7,95 5,68.3 5,31.7\" fill=\"#D7191C\"/><text x=\"50\" y=\"53\" text-anchor=\"middle\" dominant-baseline=\"middle\" font-family=\"Overpass,Arial Narrow,sans-serif\" font-weight=\"800\" font-size=\"30\" fill=\"#FFF\">STOP<\/text><\/svg>"},{"t":"circulacion","p":"Autovía de 2 carriles, atasco y se acerca una ambulancia. ¿Dónde se abre el carril de emergencia?","o":["Por el arcén derecho","En el centro, entre los dos carriles","Por el carril izquierdo"],"c":1,"e":"Con dos carriles en el mismo sentido, el carril de emergencia se forma en el centro, entre esos dos carriles.","f":"Artículo 32 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a32","s":null},{"t":"circulacion","p":"Autovía de 3 carriles y atasco. ¿Dónde se forma el carril de emergencia?","o":["Entre el carril izquierdo y el de al lado","Entre el carril central y el derecho","Por el arcén derecho"],"c":0,"e":"Con tres o más carriles, se forma entre el carril situado más a la izquierda y el contiguo a él.","f":"Artículo 32 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a32","s":null},{"t":"adelantamientos","p":"Fuera de poblado, en una vía limitada a 90 km/h, vas a adelantar a un ciclista. ¿A qué velocidad máxima puedes hacerlo?","o":["A 90 km/h","A 70 km/h","A 110 km/h"],"c":1,"e":"Hay que ir al menos 20 km/h por debajo del límite de la vía, antes y durante todo el adelantamiento: 90 − 20 = 70.","f":"Artículo 85 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a85","s":null},{"t":"adelantamientos","p":"Vas a adelantar a un grupo de ciclistas. ¿Cómo los trata la norma?","o":["Como una sola unidad: se adelanta al grupo entero","Uno a uno: puedes meterte entre ellos","Como peatones"],"c":0,"e":"Cuando los ciclistas circulan en grupo, se consideran una única unidad móvil.","f":"Artículo 85 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a85","s":null},{"t":"seguridad","p":"¿Cuál es la edad mínima para conducir un patinete eléctrico?","o":["14 años","15 años","16 años"],"c":1,"e":"No pueden conducir vehículos de movilidad personal los menores de quince años.","f":"Artículo 155 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a1-8","s":null},{"t":"seguridad","p":"¿Es obligatorio el casco en un patinete eléctrico?","o":["Solo fuera de la ciudad","Sí, siempre y bien abrochado","Solo para menores de 16"],"c":1,"e":"Quien conduce un patinete debe llevar casco homologado o certificado, adecuadamente abrochado.","f":"Artículo 118 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a118","s":null},{"t":"seguridad","p":"Vas en moto por una carretera interurbana. ¿Qué es obligatorio además del casco?","o":["Nada más","Guantes y calzado cerrado","Solo chaqueta con protecciones"],"c":1,"e":"En moto son obligatorios los guantes en vías interurbanas y el calzado cerrado en todo tipo de vías.","f":"Artículo 118 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a118","s":null},{"t":"adelantamientos","p":"En ciudad vas en coche detrás de un ciclista, en el mismo carril. ¿Qué distancia mínima debes dejar?","o":["2 metros","5 metros","10 metros"],"c":1,"e":"Hay que dejar una separación mínima de cinco metros con el ciclista que va delante en el mismo carril.","f":"Artículo 153 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a1-6","s":null},{"t":"adelantamientos","p":"En ciudad, ¿por qué parte del carril debe ir preferentemente un ciclista?","o":["Pegado al borde derecho","Por el centro del carril","Por la acera"],"c":1,"e":"Los ciclistas circulan preferentemente por el centro del carril, si su seguridad y la de los demás lo permite.","f":"Artículo 153 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a1-6","s":null},{"t":"seguridad","p":"Atasco con los carriles parados y un tramo señalizado para motos por el arcén. ¿A qué velocidad máxima pueden ir?","o":["A 30 km/h","A 50 km/h","A la del límite de la vía"],"c":0,"e":"En los tramos señalizados, las motos pueden usar el arcén derecho con el tráfico detenido, como máximo a 30 km/h y en fila de a uno.","f":"Artículo 36 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a36","s":null}],NOMBRES={"senales": "Señales", "velocidad": "Velocidad", "adelantamientos": "Adelantamientos", "seguridad": "Seguridad", "circulacion": "Circulación", "puntos": "Puntos y carnet"},TAM=10,caja=document.getElementById('test'),lista=[],i=0,aciertos=0,tema=null;
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function mezcla(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[j];a[j]=t}return a}
+  function empezar(t){tema=t||null;lista=mezcla(tema?BANCO.filter(function(q){return q.t===tema}):BANCO).slice(0,TAM);i=0;aciertos=0;pinta()}
+  function pinta(){
+    var q=lista[i],pct=Math.round(i/lista.length*100);
+    var ops=q.o.map(function(o,k){return '<button type="button" class="op" data-k="'+k+'"><i>'+'ABC'.charAt(k)+'</i><span>'+esc(o)+'</span></button>'}).join('');
+    caja.innerHTML='<div class="t-cab"><span>Pregunta '+(i+1)+' de '+lista.length+'</span><span>Aciertos: <b>'+aciertos+'</b></span></div>'+
+      '<div class="barra"><i style="width:'+pct+'%"></i></div><p class="t-tema">'+esc(NOMBRES[q.t])+'</p><p class="t-preg">'+esc(q.p)+'</p>'+
+      (q.s?'<div class="t-senal">'+q.s+'</div>':'')+'<div class="ops">'+ops+'</div><div id="tras" aria-live="polite"></div>';
+  }
+  function final(){
+    var fallos=lista.length-aciertos,limite=Math.floor(lista.length*0.1),apto=fallos<=limite;
+    caja.innerHTML='<div class="res"><div class="nota">'+aciertos+'<small>/'+lista.length+'</small></div><div class="sello '+(apto?'apto':'no')+'">'+(apto?'Apto':'No apto')+'</div>'+
+      '<p>'+(apto?'¡Bien hecho! Vas al ritmo del examen real, donde puedes fallar 3 de 30.':'En el examen real solo puedes fallar 3 de 30. Repasa los temas que te cuesten y vuelve a intentarlo.')+'</p>'+
+      '<div class="acc"><button type="button" class="btn amarillo" id="otra">Hacer otro test</button><a class="btn" href="#temas">Practicar por temas</a></div></div>';
+    document.getElementById('otra').addEventListener('click',function(){empezar(tema);var b=caja.querySelector('.op');if(b)b.focus()});
+  }
+  caja.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.op');if(!b||b.disabled)return;
+    var q=lista[i],k=+b.dataset.k,ok=k===q.c,botones=caja.querySelectorAll('.op');
+    if(ok)aciertos++;
+    botones.forEach(function(x,n){x.disabled=true;if(n===q.c)x.classList.add('bien')});
+    if(!ok)b.classList.add('mal');
+    caja.querySelector('.t-cab b').textContent=aciertos;
+    var ultima=i===lista.length-1;
+    document.getElementById('tras').innerHTML='<div class="expl"><b>'+(ok?'¡Correcto!':'No es esa')+'</b>'+esc(q.e)+'<br><a href="'+esc(q.u)+'" target="_blank" rel="noopener">'+esc(q.f)+'</a></div>'+
+      '<div class="t-pie"><button type="button" class="btn amarillo" id="sig">'+(ultima?'Ver resultado':'Siguiente')+'</button></div>';
+    var s=document.getElementById('sig');
+    s.addEventListener('click',function(){i++;if(i<lista.length){pinta();var f=caja.querySelector('.op');if(f)f.focus({preventScroll:true})}else{final()}caja.scrollIntoView({block:'nearest'})});
+    s.focus({preventScroll:true});
+  });
+  empezar();
+
+  document.querySelectorAll('[data-practicar]').forEach(function(a){a.addEventListener('click',function(){empezar(a.dataset.practicar)})});
+  var chips=[].slice.call(document.querySelectorAll('.chip')),vids=[].slice.call(document.querySelectorAll('.video'));
+  function filtra(f){
+    chips.forEach(function(c){var on=c.dataset.f===f;c.classList.toggle('activo',on);c.setAttribute('aria-pressed',on?'true':'false')});
+    vids.forEach(function(v){v.hidden=f!=='todos'&&v.dataset.s!==f});
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){filtra(c.dataset.f)})});
+  document.querySelectorAll('[data-filtro]').forEach(function(a){a.addEventListener('click',function(){filtra(chips.some(function(c){return c.dataset.f===a.dataset.filtro})?a.dataset.filtro:'todos')})});
+})();
+</script>
 </body>
 </html>
