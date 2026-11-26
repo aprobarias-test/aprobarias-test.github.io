@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Test permiso C y C1 gratis · Examen teórico de camión | ¿Aprobarías?</title>
+<meta name="description" content="Test del examen teórico del permiso C y C1 (carnet de camión): tacógrafo, tiempos de conducción y descanso, masas, CAP y mecánica. 20 preguntas explicadas con su norma. Gratis y sin registro.">
+<link rel="canonical" href="https://aprobarias-test.github.io/camion/">
+<meta property="og:title" content="¿Aprobarías el examen teórico de camión?">
+<meta property="og:description" content="Test de 20 preguntas del permiso C y C1, como el examen real, con cada respuesta explicada. Gratis.">
+<meta property="og:image" content="https://aprobarias-test.github.io/img/compartir.jpg">
+<meta property="og:url" content="https://aprobarias-test.github.io/camion/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#18222e">
+<link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+<link rel="preload" href="../fuentes/overpass.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Concepto: una carretera de noche. Asfalto, líneas de carril y paneles informativos como los de la autovía. */
+@font-face{font-family:Overpass;src:url(../fuentes/overpass.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Public Sans";src:url(../fuentes/public-sans.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --asfalto:#18222e; --asfalto-2:#212e3d; --asfalto-3:#2d3c4e; --linea:#4a5b70;
+  --texto:#f3f6f9; --suave:#b9c5d2; --amarillo:#ffd43b; --rojo:#e84b50; --verde:#1f9d68; --verde-claro:#d9f4e7; --rojo-claro:#fde4e4;
+  --panel:#1450a8; --papel:#ffffff; --tinta:#17212c; --tinta-suave:#4b5a6b; --borde:#d5dce4;
+  --titulo:Overpass,"Arial Narrow",Arial,sans-serif; --cuerpo:"Public Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--asfalto);color:var(--texto);font:400 1.0625rem/1.6 var(--cuerpo);overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--titulo);font-weight:800;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,4.6vw,3.1rem)}
+p{margin:0}
+ul,ol{list-style:none;margin:0;padding:0}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px;border-radius:6px}
+.ancho{width:100%;max-width:1180px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.salto{position:absolute;left:12px;top:-70px;background:var(--amarillo);color:var(--tinta);padding:10px 16px;border-radius:8px;z-index:30;font-weight:700}
+.salto:focus{top:10px}
+
+.cab{position:sticky;top:0;z-index:20;background:var(--asfalto);border-bottom:1px solid var(--asfalto-3)}
+.cab .ancho{display:flex;align-items:center;gap:26px;min-height:66px}
+.marca{display:flex;align-items:center;gap:10px;margin-right:auto;font:900 1.4rem var(--titulo);text-decoration:none;white-space:nowrap}
+.marca svg{width:36px;height:36px}
+.nav{display:flex;gap:24px}
+.nav a{font:700 1.02rem var(--titulo);color:var(--suave);text-decoration:none;padding:6px 0}
+.nav a:hover{color:var(--amarillo)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 22px 8px;border:0;border-radius:8px;background:var(--asfalto-3);color:var(--texto);font:800 1.08rem/1.1 var(--titulo);text-decoration:none;cursor:pointer;transition:background .15s,transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.amarillo{background:var(--amarillo);color:var(--tinta)}
+.btn.amarillo:hover{background:#ffe066}
+.btn.rojo{background:#c8272d;color:#fff}
+.cab .btn{min-height:40px;padding:9px 16px 6px;font-size:.98rem}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#141d28,var(--asfalto))}
+.hero::before,.hero::after{content:"";position:absolute;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,var(--linea) 0 64px,transparent 64px 124px);opacity:.55}
+.hero::before{top:26px}.hero::after{bottom:26px}
+.hero .ancho{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:52px;align-items:center;padding-block:70px 74px}
+.ante{display:inline-block;background:var(--verde);color:#fff;font:800 .95rem var(--titulo);padding:6px 12px 3px;border-radius:5px;letter-spacing:.03em;text-transform:uppercase}
+h1{font-size:clamp(3.2rem,6vw,5.3rem);font-weight:900;line-height:.92;letter-spacing:-.015em;margin-top:18px}
+h1 em{display:block;font-style:normal;color:var(--amarillo)}
+.intro{margin-top:22px;max-width:29em;font-size:1.2rem;color:var(--suave)}
+.cifras{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:28px}
+.cifras b{display:block;font:900 2.3rem/1 var(--titulo);color:#fff}
+.cifras span{font-size:.95rem;color:var(--suave)}
+
+.test{background:var(--papel);color:var(--tinta);border-radius:12px;padding:22px 24px 22px;box-shadow:0 18px 50px rgba(0,0,0,.42);min-width:0}
+.t-cab{display:flex;justify-content:space-between;align-items:center;gap:12px;font:800 .98rem var(--titulo);color:var(--tinta-suave)}
+.t-cab b{color:var(--verde);font-weight:800}
+.barra{height:7px;margin-top:9px;background:#e7ecf1;border-radius:99px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--amarillo);transition:width .25s}
+.t-tema{margin-top:15px;font:800 .84rem var(--titulo);letter-spacing:.05em;text-transform:uppercase;color:#a12127}
+.t-preg{margin-top:4px;font:800 clamp(1.3rem,2.6vw,1.55rem)/1.16 var(--titulo)}
+.t-senal{width:104px;height:104px;margin:14px auto 2px}
+.ops{display:grid;gap:9px;margin-top:15px}
+.op{display:grid;grid-template-columns:34px minmax(0,1fr);gap:11px;align-items:center;width:100%;min-height:54px;padding:8px 12px;background:#fff;border:2px solid var(--borde);border-radius:8px;color:var(--tinta);font:600 1rem/1.3 var(--cuerpo);text-align:left;cursor:pointer;transition:border-color .12s,background .12s}
+.op:hover:not(:disabled){border-color:var(--tinta);background:#f5f7f9}
+.op i{display:grid;place-items:center;width:34px;height:34px;padding-top:3px;border-radius:50%;background:var(--asfalto-2);color:#fff;font:800 1.02rem var(--titulo)}
+.op:disabled{cursor:default;color:var(--tinta)}
+.op.bien{background:var(--verde-claro);border-color:var(--verde)}.op.bien i{background:var(--verde)}
+.op.mal{background:var(--rojo-claro);border-color:#c8272d}.op.mal i{background:#c8272d}
+.expl{margin-top:13px;padding:12px 14px;background:#fff7d6;border-radius:8px;font-size:.98rem;line-height:1.45}
+.expl b{display:block;font:800 1.08rem var(--titulo)}
+.expl a{display:inline-block;margin-top:5px;font-size:.88rem;font-weight:700;color:#174a96}
+.t-pie{display:flex;justify-content:flex-end;margin-top:13px}
+.res{text-align:center;padding-block:10px 4px}
+.nota{font:900 clamp(4.4rem,10vw,6rem)/1 var(--titulo)}
+.nota small{font-size:.42em;color:var(--tinta-suave)}
+.sello{display:inline-block;margin-top:8px;padding:8px 18px 4px;border:4px solid currentColor;border-radius:8px;font:900 1.7rem var(--titulo);text-transform:uppercase;transform:rotate(-3deg)}
+.sello.apto{color:var(--verde)}.sello.no{color:#c8272d}
+.res p{margin:15px auto 0;max-width:27em;color:var(--tinta-suave)}
+.res .acc{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:18px}
+.res .btn:not(.amarillo){background:var(--asfalto-2);color:#fff}
+
+.bloque{padding-block:76px}
+.cabecera{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px 40px;margin-bottom:32px}
+.cabecera p{max-width:31em;color:var(--suave);font-size:1.1rem}
+.paneles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.panel{background:var(--panel);border-radius:10px;padding:6px}
+.panel-in{display:flex;flex-direction:column;height:100%;padding:20px 20px 18px;border:3px solid #fff;border-radius:6px}
+.panel h3{font-size:1.9rem;font-weight:800}
+.panel p{flex:1;margin-top:8px;color:#e3edfb;font-size:1rem;line-height:1.42}
+.panel-btn{align-self:flex-start;margin-top:15px;font:800 1.06rem var(--titulo);color:var(--amarillo);text-underline-offset:4px;text-decoration-thickness:2px}
+.panel-btn::after{content:" →"}
+
+.videos-b{background:var(--asfalto-2)}
+.examen{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);margin-bottom:38px;background:var(--asfalto);border-radius:12px;overflow:hidden;text-decoration:none}
+.examen img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover}
+.examen-txt{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:11px;padding:26px 30px;color:var(--suave)}
+.etiqueta{font:800 .88rem var(--titulo);letter-spacing:.05em;text-transform:uppercase;color:var(--amarillo)}
+.examen strong{font:800 clamp(1.5rem,2.8vw,2.1rem)/1.08 var(--titulo);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{min-height:42px;padding:8px 16px 5px;background:transparent;border:2px solid var(--linea);border-radius:7px;color:var(--texto);font:700 1rem var(--titulo);cursor:pointer}
+.chip:hover{border-color:var(--amarillo)}
+.chip.activo{background:var(--amarillo);border-color:var(--amarillo);color:var(--tinta)}
+.rejilla{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 16px}
+.video a,.todos{text-decoration:none}
+.marco{position:relative;display:block;aspect-ratio:9/16;border-radius:9px;overflow:hidden;background:var(--asfalto);transition:transform .15s}
+.video a:hover .marco{transform:translateY(-4px)}
+.marco img{width:100%;height:100%;object-fit:cover}
+.dur{position:absolute;right:7px;bottom:7px;padding:2px 7px 0;background:rgba(10,15,22,.86);border-radius:4px;color:#fff;font:700 .84rem var(--titulo)}
+.v-tema{display:block;margin-top:10px;font:800 .76rem var(--titulo);letter-spacing:.05em;text-transform:uppercase;color:var(--amarillo)}
+.v-tit{display:block;margin-top:1px;font:700 1.03rem/1.18 var(--titulo)}
+.todos{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;aspect-ratio:9/16;padding:14px;background:var(--amarillo);border-radius:9px;color:var(--tinta);text-align:center;font:900 1.3rem/1.08 var(--titulo)}
+.todos span{padding:8px 12px 5px;background:var(--tinta);border-radius:6px;color:#fff;font-size:.92rem}
+[hidden]{display:none!important}
+
+.ruta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:6px;border-top:6px dashed var(--amarillo)}
+.ruta li{padding:20px 24px 0 0;min-width:0;counter-increment:r}
+.ruta{counter-reset:r}
+.ruta b{display:block;font:800 1.45rem/1.1 var(--titulo)}
+.ruta b::before{content:counter(r) ". ";color:var(--amarillo)}
+.ruta p{margin-top:6px;color:var(--suave);font-size:1rem;line-height:1.45}
+.dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:50px}
+.caja{background:var(--asfalto-2);border-radius:10px;padding:24px 26px}
+.caja h3{font-size:1.55rem;margin-bottom:12px}
+.agenda li{display:flex;justify-content:space-between;gap:18px;padding:9px 0;border-top:1px solid var(--asfalto-3)}
+.agenda li:first-child{border-top:0}
+.agenda b{font-family:var(--titulo);font-weight:800}
+.agenda span{color:var(--suave);text-align:right}
+.lista{display:grid;gap:10px;color:var(--suave)}
+.lista b{color:var(--texto)}
+
+.fin{background:var(--amarillo);color:var(--tinta)}
+.fin .ancho{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px 40px;padding-block:44px}
+.fin .btn{background:var(--tinta);color:#fff}
+.pie{background:#111922;color:var(--suave);font-size:.96rem}
+.pie .ancho{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:34px;padding-block:40px}
+.pie h2{font-size:1.2rem;color:#fff;margin-bottom:8px}
+.pie p+p{margin-top:12px}
+.pie nav{display:grid;gap:9px;justify-items:start}
+.pie a{color:var(--amarillo);font-weight:600;text-underline-offset:3px}
+
+@media (max-width:1040px){
+  .nav{display:none}
+  .rejilla{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ruta{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:6px}
+}
+@media (max-width:860px){
+  .hero .ancho{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:56px 60px}
+  h1{font-size:clamp(3.2rem,15vw,6rem)}
+  .paneles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .examen{grid-template-columns:minmax(0,1fr)}
+  .dos,.pie .ancho{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .bloque{padding-block:56px}
+  .cab .btn{display:none}
+  .paneles{grid-template-columns:minmax(0,1fr);gap:12px}
+  .rejilla{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ruta{grid-template-columns:minmax(0,1fr)}
+  .test{padding:18px 15px}
+  .examen-txt{padding:20px}
+  .caja{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+/* 23/11 (él): los vídeos se ven dentro de la web (reproductor de YouTube solo al pulsar) */
+.mas-largos{font:800 1.4rem/1.2 var(--titulo);margin:0 0 14px}
+.largos{list-style:none;padding:0;margin:0 0 38px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.largos a{display:block;position:relative;color:#fff;text-decoration:none}.largos img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px}
+.largos .dur{position:absolute;right:8px;top:8px;background:rgba(0,0,0,.75);padding:2px 8px;border-radius:6px;font-size:.85rem}
+.largos .v-tit{display:block;margin-top:8px;font-weight:700;line-height:1.25}
+.visor{position:fixed;inset:0;z-index:99;background:rgba(5,10,16,.92);display:none;align-items:center;justify-content:center;padding:16px}
+.visor.abierto{display:flex}.visor-caja{position:relative;width:min(100%,1000px);aspect-ratio:16/9}
+.visor-caja.vertical{width:min(100%,calc((100vh - 90px) * 9 / 16));aspect-ratio:9/16}
+.visor iframe{width:100%;height:100%;border:0;border-radius:12px;background:#000}
+.visor-cerrar{position:absolute;top:-52px;right:0;background:#fff;color:#111;border:0;border-radius:24px;font:800 1rem var(--cuerpo);padding:10px 18px;cursor:pointer}
+/* 26/11/2026: selector de carnet (web compartida: coche B y camión C y C1) */
+.carnets{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.carnet{font:700 .85rem/1 var(--titulo);color:var(--suave);text-decoration:none;border:1px solid var(--asfalto-3);border-radius:999px;padding:8px 12px;white-space:nowrap}
+.carnet:hover{color:var(--texto);border-color:var(--linea)}
+.carnet[aria-current]{background:var(--amarillo);color:var(--tinta);border-color:var(--amarillo)}
+.pronto{background:var(--asfalto-2);border:1px dashed var(--linea);border-radius:14px;padding:18px;color:var(--suave)}
+/* 26/11/2026: el test siempre a la vista al practicar por temas; botón al examen en vídeo */
+#test{scroll-margin-top:96px}.ver-examen{margin-top:20px}
+</style>
+</head>
+<body>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+<header class="cab">
+  <div class="ancho">
+    <a class="marca" href="#inicio" aria-label="¿Aprobarías? Inicio">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9 95 86H5Z" fill="#fff" stroke="#e84b50" stroke-width="10" stroke-linejoin="round"/><text x="50" y="76" text-anchor="middle" font-family="Overpass,Arial,sans-serif" font-weight="900" font-size="50" fill="#1d3557">?</text></svg>
+      <span>¿Aprobarías?</span>
+    </a>
+    <div class="carnets" aria-label="Elige tu carnet"><a class="carnet" href="/">🚗 Coche (B)</a><a class="carnet" href="/camion/" aria-current="page">🚚 Camión (C y C1)</a></div>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#examenes">Exámenes</a>
+      <a href="#test">Test</a>
+      <a href="#temas">Temas</a>
+      <a href="#videos">Vídeos</a>
+      <a href="#metodo">Cómo estudiar</a>
+    </nav>
+    <a class="btn rojo" href="https://www.youtube.com/@AprobariasCamionC" target="_blank" rel="noopener">Ver el canal</a>
+  </div>
+</header>
+
+<main id="contenido">
+<section class="hero" id="inicio">
+  <div class="ancho">
+    <div>
+      <span class="ante">Test del permiso de camión C y C1</span>
+      <h1>¿Aprobarías <em>el de camión?</em></h1>
+      <p class="intro">El C1 y el C hacen el mismo teórico específico: tacógrafo, descansos, masas, carga, CAP y mecánica. Cada respuesta viene explicada y con su norma.</p>
+      <div class="cifras">
+        <div><b>20</b><span>preguntas en el examen</span></div>
+        <div><b>2</b><span>fallos como máximo</span></div>
+        <div><b>0 €</b><span>sin registro</span></div>
+      </div>
+      <a class="btn rojo ver-examen" href="#examenes">▶ Ver un examen completo en vídeo</a>
+    </div>
+    <div class="test" id="test" aria-label="Test de práctica">
+      <noscript><p class="t-preg">Activa JavaScript para hacer el test, o mira las preguntas en vídeo.</p></noscript>
+    </div>
+  </div>
+</section>
+
+<section class="bloque examenes" id="examenes">
+  <div class="ancho">
+    <div class="cabecera">
+      <h2>Exámenes completos en vídeo</h2>
+      <p>Hazlo de principio a fin, como el día del examen, y cuenta tus fallos.</p>
+    </div>
+    <p class="pronto">🚚 El canal de camión acaba de arrancar: muy pronto, preguntas en vídeo y el primer examen de 20 preguntas.</p>
+  </div>
+</section>
+
+<section class="bloque" id="temas">
+  <div class="ancho">
+    <div class="cabecera">
+      <h2>Estudia por temas</h2>
+      <p>Elige lo que más te cuesta y practica solo esas preguntas.</p>
+    </div>
+    <ul class="paneles"><li class="panel"><div class="panel-in"><h3>Tiempos y tacógrafo</h3><p>Conducción y descansos, pausas, tarjeta y hojas de registro.</p><a class="panel-btn" href="#test" data-practicar="tacografo">Practicar 23 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Masas y dimensiones</h3><p>Toneladas, largos, alturas y limitador de velocidad.</p><a class="panel-btn" href="#test" data-practicar="masas">Practicar 6 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Circulación y carga</h3><p>Velocidades, distancias, carriles, carga que sobresale.</p><a class="panel-btn" href="#test" data-practicar="circulacion">Practicar 11 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Permisos y CAP</h3><p>Qué permite el C1 y el C, edades, vigencia y CAP.</p><a class="panel-btn" href="#test" data-practicar="documentos">Practicar 11 preguntas</a></div></li><li class="panel"><div class="panel-in"><h3>Mecánica y frenos</h3><p>Ralentizador, freno motor, ABS, turbo y neumáticos.</p><a class="panel-btn" href="#test" data-practicar="mecanica">Practicar 9 preguntas</a></div></li></ul>
+  </div>
+</section>
+
+<section class="bloque videos-b" id="videos">
+  <div class="ancho">
+    <div class="cabecera">
+      <h2>Preguntas en vídeo</h2>
+      <p>Una pregunta explicada en menos de un minuto.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Filtrar vídeos por tema"></div>
+    <ul class="rejilla">
+      <li><a class="todos" href="https://www.youtube.com/@AprobariasCamionC/shorts" target="_blank" rel="noopener">Más preguntas en el canal<span>Ver todas</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="bloque" id="metodo">
+  <div class="ancho">
+    <div class="cabecera">
+      <h2>Cómo estudiar con el canal</h2>
+      <p>Un rato al día rinde más que un atracón antes del examen.</p>
+    </div>
+    <ol class="ruta">
+      <li><b>Responde</b><p>Haz la pregunta del día antes de ver la solución.</p></li>
+      <li><b>Entiende</b><p>Lee por qué es correcta y qué dice el artículo.</p></li>
+      <li><b>Repasa</b><p>Practica por temas lo que hayas fallado.</p></li>
+      <li><b>Examínate</b><p>Haz el examen completo de 20 y cuenta tus fallos.</p></li>
+    </ol>
+    <div class="dos">
+      <div class="caja">
+        <h3>Cuándo hay vídeo nuevo</h3>
+        <ul class="agenda">
+          <li><b>Cada día</b><span>Una pregunta de camión</span></li>
+          <li><b>Examen</b><span>Completo de 20 preguntas, como el real</span></li>
+        </ul>
+      </div>
+      <div class="caja">
+        <h3>De dónde salen las respuestas</h3>
+        <ul class="lista">
+          <li><b>Preguntas propias,</b> redactadas a partir de la normativa.</li>
+          <li><b>Comprobadas con la normativa</b> (BOE y reglamentos europeos), con doble revisión.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fin">
+  <div class="ancho">
+    <h2>Una pregunta nueva cada día</h2>
+    <a class="btn" href="https://www.youtube.com/@AprobariasCamionC?sub_confirmation=1" target="_blank" rel="noopener">Suscribirse al canal</a>
+  </div>
+</section>
+</main>
+
+<footer class="pie">
+  <div class="ancho">
+    <div>
+      <h2>Sobre esta aplicación</h2>
+      <p>«Aprobarias Test» es también una herramienta privada que usa el propio canal para publicar sus vídeos en YouTube y gestionar sus miniaturas, listas y datos. No está abierta al público ni pide datos a quienes ven los vídeos.</p>
+      <p>Las preguntas sirven para practicar: la referencia es siempre la normativa vigente.</p>
+    </div>
+    <nav aria-label="Enlaces legales">
+      <a href="preguntas/">Todas las preguntas explicadas</a>
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="https://www.youtube.com/@AprobariasCamionC" target="_blank" rel="noopener">Canal de YouTube</a>
+      <a href="mailto:aprobariastest@gmail.com">aprobariastest@gmail.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var BANCO=[{"i":"R561-a6-001","t":"tacografo","p":"Esta semana ya has conducido dos días 10 horas cada uno. ¿Cuánto puedes conducir hoy como máximo?","o":["9 horas","10 horas","11 horas"],"c":0,"e":"La conducción diaria es de 9 horas; solo se puede ampliar a 10 horas dos veces por semana, y ya las has usado (art. 6.1 del Reglamento 561/2006).","f":"Artículo 6 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a6-002","t":"tacografo","p":"La semana pasada condujiste 56 horas. ¿Cuántas horas puedes conducir como máximo esta semana?","o":["34 horas","45 horas","56 horas"],"c":0,"e":"En dos semanas seguidas no se pueden superar 90 horas de conducción: 90 − 56 = 34 horas (art. 6.3 del Reglamento 561/2006).","f":"Artículo 6 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a7-001","t":"tacografo","p":"Transportas mercancías y quieres dividir la pausa obligatoria de tus 4 h 30 min de conducción. ¿Qué reparto es válido?","o":["Primero 15 minutos y después 30 minutos","Primero 30 minutos y después 15 minutos","Tres pausas de 15 minutos cada una"],"c":0,"e":"La pausa de 45 minutos puede dividirse en una de al menos 15 minutos seguida de otra de al menos 30 minutos, en ese orden (art. 7 del Reglamento 561/2006).","f":"Artículo 7 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a4-001","t":"tacografo","p":"Quieres tomar tu descanso diario normal partido en dos periodos. ¿Cómo debes repartirlo como mínimo?","o":["Primero 3 horas y después 9 horas","Primero 9 horas y después 3 horas","Dos periodos de 6 horas cada uno"],"c":0,"e":"El descanso diario normal (11 horas) puede partirse en dos: primero al menos 3 horas seguidas y después al menos 9 horas seguidas (art. 4.g del Reglamento 561/2006).","f":"Artículo 4 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a8-001","t":"tacografo","p":"Entre dos descansos semanales, ¿cuántos descansos diarios reducidos (de 9 a menos de 11 horas) puedes tomar como máximo?","o":["Dos","Tres","Cuatro"],"c":1,"e":"Entre dos descansos semanales se permiten como máximo tres descansos diarios reducidos (art. 8.4 del Reglamento 561/2006).","f":"Artículo 8 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a4-002","t":"tacografo","p":"Esta semana te toca un descanso semanal reducido. ¿Cuánto debe durar como mínimo?","o":["24 horas seguidas","36 horas seguidas","45 horas seguidas"],"c":0,"e":"El descanso semanal normal es de al menos 45 horas; el reducido puede bajar hasta un mínimo de 24 horas consecutivas (art. 4.h del Reglamento 561/2006).","f":"Artículo 4 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a8-002","t":"tacografo","p":"Te toca tu descanso semanal normal de 45 horas lejos de casa. ¿Puedes pasarlo durmiendo en la cabina del camión?","o":["Sí, si la cabina tiene litera y el camión está aparcado","No, debe hacerse en un alojamiento fuera del vehículo","Sí, siempre que el descanso no pase de 45 horas"],"c":1,"e":"El descanso semanal normal (y el de más de 45 horas de compensación) no puede tomarse en el vehículo, sino en un alojamiento adecuado (art. 8.8 del Reglamento 561/2006).","f":"Artículo 8 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a8-003","t":"tacografo","p":"Conduces solo y terminaste tu último descanso diario a las 6:00. ¿En qué plazo debes haber hecho el siguiente descanso diario?","o":["En las 24 horas siguientes","En las 30 horas siguientes","En las 36 horas siguientes"],"c":0,"e":"El nuevo descanso diario debe tomarse dentro de las 24 horas siguientes al final del anterior; las 30 horas son solo para la conducción en equipo (art. 8.2 y 8.5 del Reglamento 561/2006).","f":"Artículo 8 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R561-a2-001","t":"tacografo","p":"Llevas mercancías dentro de España en una furgoneta de 3.000 kg de MMA con un remolque de 1.000 kg. ¿Se aplican los tiempos de conducción y descanso?","o":["No, porque la furgoneta sola no pasa de 3.500 kg","Sí, porque con el remolque se superan 3,5 toneladas","Solo si el transporte es internacional o de cabotaje"],"c":1,"e":"El Reglamento 561/2006 se aplica al transporte de mercancías cuando la MMA, incluido el remolque, supera 3,5 toneladas: aquí son 4 toneladas (art. 2.1.a).","f":"Artículo 2 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"R165-a34-001","t":"tacografo","p":"A mitad de jornada paras una hora para comer. ¿Puedes sacar la tarjeta de conductor del tacógrafo durante la pausa?","o":["Sí, en cualquier pausa que dure más de 45 minutos","No, salvo autorización o para el símbolo del país","Sí, si dejas el camión cerrado y bien aparcado"],"c":1,"e":"La tarjeta no se retira antes de terminar el trabajo diario, salvo que esté autorizado o haga falta para introducir el símbolo del país tras cruzar una frontera (art. 34.1 del Reglamento 165/2014).","f":"Artículo 34 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"R165-a34-002","t":"tacografo","p":"Conduces por Portugal un camión matriculado en España con tacógrafo analógico. ¿Qué hora debe marcar la hoja de registro?","o":["La hora oficial de España","La hora oficial de Portugal","La hora del meridiano de Greenwich"],"c":0,"e":"Con hojas de registro (tacógrafo analógico), la hora debe coincidir con la hora oficial del país de matriculación del vehículo (art. 34.5.a del Reglamento 165/2014).","f":"Artículo 34 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-RGV-AnIX-anix-001","t":"masas","p":"Conduces un camión rígido de dos ejes, de gasóleo y sin ningún equipamiento especial. ¿Cuál es su masa máxima autorizada como norma general?","o":["16 toneladas","18 toneladas","20 toneladas"],"c":1,"e":"Un vehículo de motor de 2 ejes (que no sea autobús) tiene una masa máxima autorizada de 18 toneladas; las 20 son de los autobuses urbanos de 2 ejes (anexo IX del RGV, tabla 2).","f":"Anexo IX · Reglamento General de Vehículos, anexo IX","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-15231","s":null},{"i":"C-RGV-AnIX-anix-002","t":"masas","p":"Tu camión rígido de tres ejes lleva el eje motor con neumáticos dobles y suspensión neumática. ¿Cuál es su masa máxima autorizada?","o":["25 toneladas","26 toneladas","28 toneladas"],"c":1,"e":"Un rígido de 3 ejes tiene 25 toneladas, pero si el eje motor lleva neumáticos dobles y suspensión neumática sube a 26 (anexo IX del RGV, tabla 2).","f":"Anexo IX · Reglamento General de Vehículos, anexo IX","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-15231","s":null},{"i":"C-RGV-AnIX-anix-004","t":"masas","p":"Llevas un tren de carretera: camión de 2 ejes con un remolque de 3 ejes. ¿Cuál es la masa máxima autorizada del conjunto?","o":["40 toneladas","42 toneladas","44 toneladas"],"c":1,"e":"Un tren de carretera formado por vehículo de motor de 2 ejes y remolque de 3 ejes tiene 42 toneladas; las 44 son para el de 3 ejes con remolque de 2 o 3 (anexo IX del RGV, tabla 2).","f":"Anexo IX · Reglamento General de Vehículos, anexo IX","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-15231","s":null},{"i":"C-RGV-AnIX-anix-005","t":"masas","p":"Conduces un vehículo articulado (tractocamión con semirremolque) que no es un autobús. ¿Cuál es su longitud máxima autorizada?","o":["12,00 metros","16,50 metros","18,75 metros"],"c":1,"e":"Los vehículos articulados (salvo autobuses) pueden medir como máximo 16,50 m; 12 m es el rígido y 18,75 m el tren de carretera (anexo IX del RGV, tabla 3).","f":"Anexo IX · Reglamento General de Vehículos, anexo IX","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-15231","s":null},{"i":"C-RGV-AnIX-anix-006","t":"masas","p":"Conduces un camión portavehículos especializado en transportar coches. ¿Qué altura máxima puede tener, incluida la carga?","o":["4,00 metros","4,20 metros","4,50 metros"],"c":2,"e":"La altura máxima general es de 4 m, pero los portavehículos especializados pueden llegar a 4,50 m incluida la carga; 4,20 m es la de los autobuses urbanos (anexo IX del RGV, tabla 3).","f":"Anexo IX · Reglamento General de Vehículos, anexo IX","u":"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-15231","s":null},{"i":"C-RDLim-a4-001","t":"masas","p":"Tu camión de mercancías tiene 10.000 kg de MMA. ¿A qué velocidad máxima debe estar regulado su limitador de velocidad?","o":["80 km/h","90 km/h","100 km/h"],"c":1,"e":"Los camiones de mercancías de las categorías N2 y N3 deben llevar el limitador regulado a 90 km/h; los 100 km/h son de los autobuses (RD 1417/2005, art. 4).","f":"Artículo 4 · RD 1417/2005 (limitadores)","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2005-19990#a4","s":null},{"i":"C-RGC-a48-001","t":"circulacion","p":"Conduces un camión de 12.000 kg por una carretera convencional y no hay ninguna señal de velocidad. ¿Cuál es tu velocidad máxima?","o":["70 km/h","80 km/h","90 km/h"],"c":1,"e":"En carretera convencional, los camiones tienen un máximo de 80 km/h; los 90 km/h son para turismos y motos (RGC, art. 48.1.a).","f":"Artículo 48 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a48","s":null},{"i":"C-RGCond-a4-001","t":"documentos","p":"Tienes el permiso C1. ¿Puedes conducir un camión de 8.000 kg de masa máxima autorizada?","o":["No, el C1 solo llega hasta 7.500 kg","Sí, el C1 llega hasta 12.000 kg","Sí, si el camión no lleva remolque"],"c":0,"e":"El C1 autoriza camiones de más de 3.500 kg y hasta 7.500 kg; los 12.000 kg son el límite del conjunto con el C1 + E (RGCond, art. 4).","f":"Artículo 4 · Reglamento General de Conductores","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2009-9481#a4","s":null},{"i":"C-RGCond-a4-002","t":"documentos","p":"Tienes 19 años y quieres sacarte el permiso C. ¿Puedes?","o":["No, el permiso C exige siempre tener 21 años cumplidos","Sí, si tienes el CAP de cualificación inicial ordinaria","Sí, si antes has tenido el C1 durante al menos un año"],"c":1,"e":"El permiso C exige 21 años, pero baja a 18 para quien tiene el CAP obtenido por la cualificación inicial ordinaria (RGCond, art. 4).","f":"Artículo 4 · Reglamento General de Conductores","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2009-9481#a4","s":null},{"i":"C-R165-a36-001","t":"tacografo","p":"Tu camión tiene tacógrafo analógico y te para un agente de control. ¿Qué hojas de registro debes poder enseñarle?","o":["Las de hoy y las de los 28 días anteriores","Las de hoy y las de los 56 días anteriores","Las de hoy y las de los 90 días anteriores"],"c":1,"e":"Con tacógrafo analógico hay que poder presentar las hojas del día en curso y las de los 56 días anteriores; hasta el 31/12/2024 eran 28 (art. 36.1 del Reglamento 165/2014).","f":"Artículo 36 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-R165-a27-001","t":"tacografo","p":"Tu compañero ha olvidado su tarjeta de conductor. ¿Puede hacer el último tramo usando la tuya?","o":["Sí, si anotáis el cambio a mano en el tacógrafo","No, cada conductor solo puede usar su tarjeta","Sí, si con tu tarjeta conduce menos de una hora"],"c":1,"e":"La tarjeta de conductor es personal: cada conductor solo puede usar su propia tarjeta (art. 27 del Reglamento 165/2014).","f":"Artículo 27 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-R165-a28-001","t":"tacografo","p":"Tu tarjeta de conductor va a caducar. ¿Con cuánta antelación mínima debes pedir la renovación?","o":["15 días hábiles antes de que caduque","30 días hábiles antes de que caduque","15 días naturales antes de que caduque"],"c":0,"e":"La renovación se pide como mínimo 15 días hábiles antes de la fecha de caducidad de la tarjeta (art. 28.1 del Reglamento 165/2014).","f":"Artículo 28 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-R165-a26-001","t":"tacografo","p":"Pides por primera vez tu tarjeta de conductor y entregas toda la documentación. ¿En qué plazo deben expedírtela?","o":["En el plazo de quince días","En el plazo de un mes","En el plazo de tres meses"],"c":1,"e":"La tarjeta de conductor se expide en el plazo de un mes desde que se recibe la solicitud con toda la documentación (art. 26.1 del Reglamento 165/2014).","f":"Artículo 26 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-R165-a26-002","t":"tacografo","p":"Vives en España y trabajas para una empresa francesa con camiones matriculados en Francia. ¿Dónde debes pedir la tarjeta de conductor?","o":["En Francia, donde está matriculado el camión","En España, donde tienes tu residencia habitual","En Francia, donde tiene su sede tu empresa"],"c":1,"e":"La tarjeta la expide el Estado miembro donde el conductor tiene su residencia habitual (art. 26.1 del Reglamento 165/2014).","f":"Artículo 26 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-R165-a37-001","t":"tacografo","p":"El tacógrafo se avería durante un viaje largo. ¿En qué caso hay que repararlo durante el propio viaje?","o":["Si el camión no puede volver a la empresa en 72 horas","Si el camión no puede volver a la empresa en una semana","Si el camión no puede volver a la empresa en un mes"],"c":1,"e":"Si el vehículo no puede volver a la empresa en el plazo de una semana desde la avería, la reparación debe hacerse durante el viaje (art. 37.1 del Reglamento 165/2014).","f":"Artículo 37 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-R165-a35-001","t":"tacografo","p":"Has perdido tu tarjeta de conductor y sigues trabajando mientras te dan otra. ¿Cuándo debes imprimir los datos del tacógrafo?","o":["Solo al terminar el viaje, y firmarlos después","Al empezar y al terminar el viaje, y firmarlos","Solo al empezar el viaje, y firmarlos después"],"c":1,"e":"Con la tarjeta perdida, robada o estropeada hay que imprimir los datos al inicio y al final del viaje, con tus datos y tu firma (art. 35.2 del Reglamento 165/2014).","f":"Artículo 35 · Reglamento (UE) 165/2014","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02014R0165-20240519","s":null},{"i":"C-R561-a9-001","t":"tacografo","p":"Viajas con tu camión en un ferry y haces allí tu descanso diario normal, con litera. ¿Cómo puedes interrumpirlo para otras actividades?","o":["Una vez, sin pasar de una hora","Dos veces, sin pasar de una hora en total","Dos veces, sin pasar de dos horas en total"],"c":1,"e":"En ferry o tren, el descanso diario normal puede interrumpirse como máximo dos veces y no más de una hora en total (art. 9.1 del Reglamento 561/2006).","f":"Artículo 9 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"C-R561-a12-001","t":"tacografo","p":"De forma excepcional se te acaba el tiempo de conducción muy cerca de casa, donde harás tu descanso semanal. Sin hacer antes ninguna pausa, ¿cuánto puedes superarlo?","o":["Hasta una hora","Hasta dos horas","Hasta hora y media"],"c":0,"e":"Sin comprometer la seguridad, puedes superar el tiempo de conducción hasta 1 hora para llegar a la base o a casa a descansar; 2 horas solo con una pausa de 30 minutos antes (art. 12 del Reglamento 561/2006).","f":"Artículo 12 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"C-R561-a12-002","t":"tacografo","p":"Excepcionalmente necesitas superar tu tiempo de conducción para llegar a casa a tu descanso semanal normal. ¿Qué tienes que hacer para poder conducir hasta 2 horas más?","o":["Una pausa de 30 minutos justo antes","Una pausa de 45 minutos justo antes","Una pausa de 15 minutos justo antes"],"c":0,"e":"Para superar el tiempo de conducción hasta 2 horas hay que hacer antes una pausa ininterrumpida de 30 minutos, y solo para llegar a un descanso semanal normal (art. 12 del Reglamento 561/2006).","f":"Artículo 12 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"C-R561-a12-003","t":"tacografo","p":"Te saltas los tiempos de conducción para llegar a un lugar donde parar con seguridad. ¿Cuándo debes anotar el motivo?","o":["Antes de empezar la conducción de más","Como muy tarde, al llegar al punto de parada","Al terminar la semana, en el resumen semanal"],"c":1,"e":"El motivo de la excepción se anota a mano en la hoja, en una impresión o en el registro de servicio, como muy tarde al llegar al punto de parada (art. 12 del Reglamento 561/2006).","f":"Artículo 12 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"C-R561-a7-001","t":"tacografo","p":"Conduces en equipo. ¿Puedes hacer tu pausa de 45 minutos en el camión mientras conduce tu compañero?","o":["Sí, siempre que no le ayudes en nada","No, la pausa exige el camión parado","Sí, pero solo si vas en la litera"],"c":0,"e":"En conducción en equipo, la pausa de 45 minutos puede hacerse en el vehículo mientras conduce el otro, siempre que no le asistas (art. 7 del Reglamento 561/2006).","f":"Artículo 7 · Reglamento (CE) 561/2006","u":"https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02006R0561-20240522","s":null},{"i":"C-RGC-a15-001","t":"circulacion","p":"Tu camión de 9 metros lleva vigas que no se pueden dividir. ¿Cuánto pueden sobresalir como máximo?","o":["3 metros por delante y 2 metros por detrás","2 metros por delante y 3 metros por detrás","2 metros por delante y 2 metros por detrás"],"c":1,"e":"En vehículos de mercancías de más de 5 m, la carga indivisible puede sobresalir 2 m por delante y 3 m por detrás (RGC, art. 15.2.a).","f":"Artículo 15 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a15","s":null},{"i":"C-RGC-a15-002","t":"circulacion","p":"Tu camión de reparto mide 4,5 metros y lleva tubos que no se pueden dividir. ¿Cuánto pueden sobresalir por detrás como máximo?","o":["Hasta 1,5 metros","Hasta 2 metros","Hasta 3 metros"],"c":0,"e":"En vehículos de mercancías de 5 m o menos, la carga indivisible puede sobresalir un tercio de la longitud del vehículo por cada extremo: 4,5 ÷ 3 = 1,5 m (RGC, art. 15.2.a).","f":"Artículo 15 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a15","s":null},{"i":"C-RGC-a15-003","t":"circulacion","p":"Llevas una pieza indivisible más ancha que tu camión de mercancías. ¿Cuánto puede sobresalir por los lados?","o":["0,40 m por lado, sin pasar de 2,55 m en total","0,50 m por lado, sin pasar de 2,55 m en total","0,40 m por lado, sin pasar de 2,60 m en total"],"c":0,"e":"La carga indivisible más ancha que el vehículo puede sobresalir hasta 0,40 m por cada lateral, siempre que el ancho total no supere 2,55 m (RGC, art. 15.2.b).","f":"Artículo 15 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a15","s":null},{"i":"C-RGC-a15-004","t":"circulacion","p":"La carga de tu camión sobresale por detrás ocupando toda la anchura de la caja. ¿Cómo debes señalizarla?","o":["Con un panel V-20 en el centro de la carga","Con dos paneles V-20, uno en cada extremo","Con un panel V-20 en el lado izquierdo"],"c":1,"e":"Si la carga sobresale por toda la anchura trasera, se ponen dos paneles de señalización (V-20), uno en cada extremo (RGC, art. 15.6).","f":"Artículo 15 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a15","s":null},{"i":"C-RGC-a54-001","t":"circulacion","p":"Conduces un camión de 12.000 kg por una carretera convencional, fuera de poblado, donde se puede adelantar. No piensas adelantar al de delante. ¿Qué separación mínima debes dejar?","o":["50 metros","70 metros","100 metros"],"c":0,"e":"Los vehículos de más de 3.500 kg (o de más de 10 m) que no van a adelantar deben dejar al menos 50 m, para que otros puedan adelantarles (RGC, art. 54.2).","f":"Artículo 54 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a54","s":null},{"i":"C-RGC-a54-002","t":"circulacion","p":"Llevas un camión de 15.000 kg. ¿En cuál de estos casos NO estás obligado a guardar la separación mínima de 50 metros con el de delante?","o":["En una autovía con dos carriles en tu sentido","En una carretera convencional por la noche","En una carretera convencional con lluvia"],"c":0,"e":"La separación de 50 m no se aplica en poblado, donde está prohibido adelantar, donde hay más de un carril en tu sentido o con la circulación saturada (RGC, art. 54.3).","f":"Artículo 54 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a54","s":null},{"i":"C-RGC-a31-001","t":"circulacion","p":"Conduces un camión de 18.000 kg por una autovía con tres carriles en tu sentido. ¿Por qué carriles puedes circular?","o":["Por cualquiera de ellos, si no entorpeces a nadie","Solo por el de la derecha, sin ninguna excepción","Por el de la derecha, pudiendo usar el contiguo"],"c":2,"e":"Con tres o más carriles por sentido, los camiones de más de 3.500 kg circulan normalmente por el de la derecha y pueden usar el inmediato cuando el tráfico lo aconseje (RGC, art. 31.2).","f":"Artículo 31 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a31","s":null},{"i":"C-RGC-a95-001","t":"circulacion","p":"Entras con tu camión de 20.000 kg en un túnel y no vas a adelantar. ¿Qué distancia mínima debes guardar con el vehículo de delante?","o":["100 metros o 4 segundos","150 metros o 6 segundos","200 metros o 8 segundos"],"c":1,"e":"En túneles, los vehículos de más de 3.500 kg deben guardar al menos 150 m o 6 segundos con el de delante (los demás, 100 m o 4 s) (RGC, art. 95).","f":"Artículo 95 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a95","s":null},{"i":"C-RGC-a92-001","t":"circulacion","p":"Aparcas tu camión de 12.000 kg en una calle con mucha pendiente. Además del freno de estacionamiento, ¿qué debes hacer?","o":["Ponerle calzos o apoyar una rueda directriz en el bordillo","Calzarlo con piedras grandes junto a las ruedas de atrás","Nada más, con el freno de estacionamiento ya es suficiente"],"c":0,"e":"Los vehículos de más de 3.500 kg parados en sensible pendiente deben quedar calzados con calzos (nunca piedras) o con una rueda directriz apoyada en el bordillo (RGC, art. 92).","f":"Artículo 92 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a92","s":null},{"i":"C-RGC-a154-001","t":"circulacion","p":"Conduces un camión de 14.000 kg y ves la señal de adelantamiento prohibido para camiones. ¿A qué vehículo de motor puedes adelantar?","o":["A un turismo que circula muy despacio por su carril","A una moto de dos ruedas, sin invadir el otro sentido","A cualquiera, siempre que no invadas el otro sentido"],"c":1,"e":"Con esa señal, los camiones de más de 3.500 kg no pueden adelantar a vehículos de motor, salvo motocicletas de dos ruedas y sin invadir el sentido contrario (RGC, art. 154).","f":"Artículo 154 · Reglamento General de Circulación","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a154","s":null},{"i":"C-RGCond-a12-001","t":"documentos","p":"Tienes 40 años y acabas de renovar tu permiso C. ¿Por cuánto tiempo es válido?","o":["Por tres años","Por cinco años","Por diez años"],"c":1,"e":"Los permisos C1 y C valen cinco años hasta los 65 y tres años a partir de esa edad (los demás permisos, diez y cinco) (RGCond, art. 12.1).","f":"Artículo 12 · Reglamento General de Conductores","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2009-9481#a12","s":null},{"i":"C-RGCond-a12-002","t":"documentos","p":"Tienes 66 años y renuevas tu permiso C. ¿Por cuánto tiempo te lo renuevan como norma general?","o":["Por dos años","Por tres años","Por cinco años"],"c":1,"e":"A partir de los 65 años, los permisos C1 y C se renuevan por tres años, salvo que una enfermedad obligue a reducir el plazo (RGCond, art. 12).","f":"Artículo 12 · Reglamento General de Conductores","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2009-9481#a12","s":null},{"i":"C-RDCAP-a7-001","t":"documentos","p":"Trabajas de camionero con el CAP. ¿Qué formación continua tienes que hacer para mantenerlo?","o":["Un curso de 35 horas cada cinco años","Un curso de 35 horas cada diez años","Un curso de 140 horas cada cinco años"],"c":0,"e":"La formación continua del CAP es un curso de 35 horas cada cinco años (RD 284/2021, art. 7.2).","f":"Artículo 7 · RD 284/2021 (CAP)","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2021-6624#a7","s":null},{"i":"C-RDCAP-a5-001","t":"documentos","p":"Quieres sacarte el CAP por la cualificación inicial ordinaria. ¿Cuántas horas dura el curso?","o":["140 horas","210 horas","280 horas"],"c":2,"e":"La cualificación inicial ordinaria es un curso de 280 horas más su examen; la acelerada, de 140 horas (RD 284/2021, art. 5.1).","f":"Artículo 5 · RD 284/2021 (CAP)","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2021-6624#a5","s":null},{"i":"C-RDCAP-a6-001","t":"documentos","p":"Eliges la cualificación inicial acelerada para obtener el CAP. ¿Cuántas horas dura el curso?","o":["35 horas","140 horas","280 horas"],"c":1,"e":"La cualificación inicial acelerada es un curso de 140 horas más su examen (la ordinaria, de 280) (RD 284/2021, art. 6.1).","f":"Artículo 6 · RD 284/2021 (CAP)","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2021-6624#a6","s":null},{"i":"C-RDCAP-a7-002","t":"documentos","p":"Quieres hacer el curso de formación continua del CAP en varios periodos. ¿Qué condiciones deben cumplir?","o":["Mínimo 7 horas, misma empresa CAP y mismo año","Mínimo 5 horas, misma empresa CAP y mismo año","Mínimo 7 horas, cualquier empresa CAP y año"],"c":0,"e":"La formación continua puede hacerse por periodos si los imparte la misma empresa CAP, dentro del mismo año natural y ninguno dura menos de 7 horas (RD 284/2021, art. 7.2).","f":"Artículo 7 · RD 284/2021 (CAP)","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2021-6624#a7","s":null},{"i":"C-RDCAP-a5-002","t":"documentos","p":"¿Necesitas tener ya el permiso C para hacer el curso y el examen del CAP por la cualificación inicial ordinaria?","o":["No, no hace falta tener ningún permiso","Sí, hace falta tener ya el permiso C","Sí, hace falta tener al menos el C1"],"c":0,"e":"Para el curso y el examen de la cualificación inicial ordinaria del CAP no hace falta tener permiso de conducción (RD 284/2021, art. 5.1).","f":"Artículo 5 · RD 284/2021 (CAP)","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2021-6624#a5","s":null},{"i":"C-RDCAP-a3-001","t":"documentos","p":"¿Cuánto tiempo vale el certificado de aptitud profesional (CAP)?","o":["No tiene plazo fijo, pero exige la formación continua","Cinco años, y después hay que volver a examinarse","Diez años, igual que el permiso de la clase B"],"c":0,"e":"Desde el 18/09/2026, el CAP no tiene un plazo de validez fijo, pero su vigencia depende de hacer a tiempo la formación continua (RD 284/2021, art. 3.1).","f":"Artículo 3 · RD 284/2021 (CAP)","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2021-6624#a3","s":null},{"i":"C-RGCond-a5-001","t":"documentos","p":"Quieres sacarte el permiso C1. ¿Qué necesitas tener ya?","o":["El permiso B en vigor","El permiso B con dos años de antigüedad","El permiso B y el CAP"],"c":0,"e":"Los permisos C1 y C solo se expiden a quien ya tiene el permiso B en vigor; no se exige antigüedad (RGCond, art. 5).","f":"Artículo 5 · Reglamento General de Conductores","u":"https://www.boe.es/buscar/act.php?id=BOE-A-2009-9481#a5","s":null},{"i":"C-MEC-manual-001","t":"mecanica","p":"Bajas un puerto largo con el camión y notas que los frenos pierden eficacia por el calor (fading). ¿Qué debes usar en primer lugar?","o":["El freno de servicio, pisando con más fuerza","Los ralentizadores de que disponga el camión","El freno de estacionamiento, a ratos cortos"],"c":1,"e":"Con los frenos recalentados (fading), primero se recurre a los ralentizadores y, solo si hace falta, después al freno de servicio (manual técnico oficial de mecánica, sistema de frenado).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-002","t":"mecanica","p":"Tu camión lleva un ralentizador hidráulico. ¿Cómo frena?","o":["Con aceite, sin ningún rozamiento mecánico","Con pastillas que rozan sobre un disco","Cerrando el paso de los gases de escape"],"c":0,"e":"El ralentizador hidráulico frena gracias al aceite que circula entre sus piezas, sin rozamiento mecánico; por eso hay que cambiarle el aceite periódicamente (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-003","t":"mecanica","p":"¿Cómo actúa el freno motor en el escape de un camión?","o":["Haciendo circular aceite entre un rotor y un estator","Limitando el paso de los gases hacia el silenciador","Creando un campo magnético sobre la transmisión"],"c":1,"e":"El freno motor en el escape limita la salida de los gases hacia el silenciador y así retiene el motor; se usa en bajadas como ayuda al freno de servicio (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-004","t":"mecanica","p":"En el cuadro se enciende el aviso de avería del ABS. ¿Qué pasa con los frenos?","o":["Siguen frenando, pero sin la función antibloqueo","Dejan de frenar hasta que se repare la avería","Solo frenan las ruedas del eje trasero del camión"],"c":0,"e":"Si el ABS se avería, queda anulado y el vehículo sigue frenando con el sistema de frenos clásico, pero las ruedas pueden bloquearse (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-005","t":"mecanica","p":"Tienes que hacer una frenada de emergencia con un camión que lleva ABS. ¿Qué debes hacer con el pedal?","o":["Bombearlo para que no se bloqueen las ruedas","Pisarlo con fuerza, sin bombearlo","Soltarlo en cuanto notes que vibra"],"c":1,"e":"Con ABS no hay que bombear el pedal: el sistema regula la presión para evitar el bloqueo, y es normal notar ruidos y vibraciones (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-006","t":"mecanica","p":"En un sistema de frenos neumático, ¿a qué presión aproximada envía el compresor el aire al calderín?","o":["A unos 800-1.000 hPa","A unos 8.000-10.000 hPa","A unos 80.000-100.000 hPa"],"c":1,"e":"El compresor, movido por el motor, filtra el aire y lo envía al calderín a unos 8.000-10.000 hPa (8-10 bar) (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-007","t":"mecanica","p":"¿Para qué sirve el intercooler en un motor con turbocompresor?","o":["Para enfriar el aceite del motor que llega al turbo","Para calentar el gasóleo antes de inyectarlo","Para enfriar el aire de admisión que sale del turbo"],"c":2,"e":"El intercooler va entre el turbo y el colector de admisión y enfría el aire comprimido y caliente que sale del turbo, para que el motor se llene mejor (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-008","t":"mecanica","p":"¿Qué hace la válvula de descarga del turbocompresor?","o":["Desvía gases de escape para limitar la presión del turbo","Desvía aire de admisión hacia el intercooler del motor","Desvía el gasóleo sobrante de vuelta al depósito"],"c":0,"e":"La válvula de descarga desvía parte de los gases de escape sin pasar por la turbina para que la presión de sobrealimentación no sea excesiva (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null},{"i":"C-MEC-manual-009","t":"mecanica","p":"¿Qué ventaja tienen los frenos de disco frente a los de tambor?","o":["Retienen más el calor y así frenan durante más tiempo","Se refrigeran mejor y retrasan la aparición del fading","Funcionan sin líquido de frenos ni aire comprimido"],"c":1,"e":"Los frenos de disco se refrigeran mejor, frenan en menos distancia y retrasan el fading, la pérdida de eficacia por exceso de calor (manual técnico oficial de mecánica).","f":"Manual técnico oficial de mecánica","u":"https://sede.dgt.gob.es/export/sites/dgt/.galleries/permisos-de-conducir/certificacion-aptitud-profesores-formacion-vial/2026/MANUAL-VIII-Mecanica.pdf","s":null}],NOMBRES={"tacografo": "Tiempos y tacógrafo", "masas": "Masas y dimensiones", "circulacion": "Circulación y carga", "documentos": "Permisos y CAP", "mecanica": "Mecánica y frenos"},TAM=20,caja=document.getElementById('test'),lista=[],i=0,aciertos=0,tema=null;
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function mezcla(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[j];a[j]=t}return a}
+  function empezar(t){tema=t||null;lista=mezcla(tema?BANCO.filter(function(q){return q.t===tema}):BANCO).slice(0,TAM);i=0;aciertos=0;pinta()}
+  function pinta(){
+    var q=lista[i],pct=Math.round(i/lista.length*100);
+    var ops=q.o.map(function(o,k){return '<button type="button" class="op" data-k="'+k+'"><i>'+'ABC'.charAt(k)+'</i><span>'+esc(o)+'</span></button>'}).join('');
+    caja.innerHTML='<div class="t-cab"><span>Pregunta '+(i+1)+' de '+lista.length+'</span><span>Aciertos: <b>'+aciertos+'</b></span></div>'+
+      '<div class="barra"><i style="width:'+pct+'%"></i></div><p class="t-tema">'+esc(NOMBRES[q.t])+'</p><p class="t-preg">'+esc(q.p)+'</p>'+
+      (q.s?'<div class="t-senal">'+q.s+'</div>':'')+'<div class="ops">'+ops+'</div><div id="tras" aria-live="polite"></div>';
+  }
+  function final(){
+    var fallos=lista.length-aciertos,limite=Math.floor(lista.length*0.1),apto=fallos<=limite;
+    caja.innerHTML='<div class="res"><div class="nota">'+aciertos+'<small>/'+lista.length+'</small></div><div class="sello '+(apto?'apto':'no')+'">'+(apto?'Apto':'No apto')+'</div>'+
+      '<p>'+(apto?'¡Bien hecho! Vas al ritmo del examen real, donde puedes fallar 2 de 20.':'En el examen real solo puedes fallar 2 de 20. Repasa los temas que te cuesten y vuelve a intentarlo.')+'</p>'+
+      '<div class="acc"><button type="button" class="btn amarillo" id="otra">Hacer otro test</button><a class="btn" href="#temas">Practicar por temas</a></div></div>';
+    document.getElementById('otra').addEventListener('click',function(){empezar(tema);var b=caja.querySelector('.op');if(b)b.focus()});
+  }
+  caja.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.op');if(!b||b.disabled)return;
+    var q=lista[i],k=+b.dataset.k,ok=k===q.c,botones=caja.querySelectorAll('.op');
+    if(ok)aciertos++;
+    botones.forEach(function(x,n){x.disabled=true;if(n===q.c)x.classList.add('bien')});
+    if(!ok)b.classList.add('mal');
+    caja.querySelector('.t-cab b').textContent=aciertos;
+    var ultima=i===lista.length-1;
+    document.getElementById('tras').innerHTML='<div class="expl"><b>'+(ok?'¡Correcto!':'No es esa')+'</b>'+esc(q.e)+'<br><a href="'+esc(q.u)+'" target="_blank" rel="noopener">'+esc(q.f)+'</a></div>'+
+      '<div class="t-pie"><button type="button" class="btn amarillo" id="sig">'+(ultima?'Ver resultado':'Siguiente')+'</button></div>';
+    var s=document.getElementById('sig');
+    s.addEventListener('click',function(){i++;if(i<lista.length){pinta();var f=caja.querySelector('.op');if(f)f.focus({preventScroll:true})}else{final()}caja.scrollIntoView({block:'nearest'})});
+    s.focus({preventScroll:true});
+  });
+  empezar();
+
+  document.querySelectorAll('[data-practicar]').forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();empezar(a.dataset.practicar);if(history.replaceState)history.replaceState(null,'','#test');caja.scrollIntoView({behavior:'smooth',block:'start'});var f=caja.querySelector('.op');if(f)f.focus({preventScroll:true})})});
+  var chips=[].slice.call(document.querySelectorAll('.chip')),vids=[].slice.call(document.querySelectorAll('.video'));
+  function filtra(f){
+    chips.forEach(function(c){var on=c.dataset.f===f;c.classList.toggle('activo',on);c.setAttribute('aria-pressed',on?'true':'false')});
+    vids.forEach(function(v){v.hidden=f!=='todos'&&v.dataset.s!==f});
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){filtra(c.dataset.f)})});
+  document.querySelectorAll('[data-filtro]').forEach(function(a){a.addEventListener('click',function(){filtra(chips.some(function(c){return c.dataset.f===a.dataset.filtro})?a.dataset.filtro:'todos')})});
+})();
+</script>
+<div class="visor" id="visor" role="dialog" aria-modal="true" aria-label="Vídeo"><div class="visor-caja" id="visor-caja">
+<button class="visor-cerrar" type="button" id="visor-cerrar">✕ Cerrar</button></div></div>
+<script>
+(function(){var v=document.getElementById("visor"),c=document.getElementById("visor-caja");
+function cerrar(){v.classList.remove("abierto");var f=c.querySelector("iframe");if(f)f.remove();document.body.style.overflow=""}
+document.addEventListener("click",function(ev){var a=ev.target.closest("a[data-yt]");if(!a)return;ev.preventDefault();
+var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+a.dataset.yt+"?autoplay=1&playsinline=1&rel=0";
+f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.title="Vídeo de ¿Aprobarías?";
+c.classList.toggle("vertical",a.dataset.vertical==="1");c.appendChild(f);v.classList.add("abierto");document.body.style.overflow="hidden"});
+document.getElementById("visor-cerrar").addEventListener("click",cerrar);v.addEventListener("click",function(ev){if(ev.target===v)cerrar()});
+document.addEventListener("keydown",function(ev){if(ev.key==="Escape")cerrar()})})();
+</script>
+</body>
+</html>
